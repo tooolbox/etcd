@@ -159,7 +159,7 @@ type Request struct {
 }
 
 func (m *Request) Reset()                    { *m = Request{} }
-func (m *Request) String() string            { return proto.CompactTextString(m) }
+func (m *Request) String() string            { return "" /* proto.CompactTextString(m) */ }
 func (*Request) ProtoMessage()               {}
 func (*Request) Descriptor() ([]byte, []int) { return fileDescriptorEtcdserver, []int{0} }
 

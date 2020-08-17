@@ -16,10 +16,15 @@ package etcdserverpb
 
 import (
 	"fmt"
+	"log"
 	"strings"
 
 	proto "github.com/golang/protobuf/proto"
 )
+
+func init() {
+	log.Print("USING ALTERED VERSION OF ETCD TO FIX A LOGGING PROBLEM")
+}
 
 // InternalRaftStringer implements custom proto Stringer:
 // redact password, replace value fields with value_size fields.
@@ -28,6 +33,9 @@ type InternalRaftStringer struct {
 }
 
 func (as *InternalRaftStringer) String() string {
+
+	return ""
+
 	switch {
 	case as.Request.LeaseGrant != nil:
 		return fmt.Sprintf("header:<%s> lease_grant:<ttl:%d-second id:%016x>",
